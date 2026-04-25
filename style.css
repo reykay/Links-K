@@ -111,3 +111,92 @@ color:white;
   opacity: 1;
   transform: translateY(0);
 }
+
+.visitas-box {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  z-index: 999;
+}
+
+.visitas-texto {
+  color: #7a0000;
+  text-shadow: 0 0 10px rgba(122,0,0,.55);
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.contador-roleta {
+  min-width: 46px;
+  height: 32px;
+  padding: 0 8px;
+  border-radius: 10px;
+  background: rgba(40, 0, 0, 0.55);
+  border: 1px solid rgba(122,0,0,.6);
+  box-shadow: 0 0 12px rgba(122,0,0,.35);
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#contador {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.numero {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.numero.antigo {
+  animation: numeroSai 0.5s ease forwards;
+}
+
+.numero.novo {
+  animation: numeroEntra 0.5s ease forwards;
+}
+
+@keyframes numeroSai {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(100%); opacity: 0; }
+}
+
+@keyframes numeroEntra {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.contador-animado {
+  animation: pulseContador 0.45s ease;
+}
+
+@keyframes pulseContador {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 12px rgba(122,0,0,.35);
+  }
+  50% {
+    transform: scale(1.18);
+    box-shadow: 0 0 22px rgba(122,0,0,.75);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 12px rgba(122,0,0,.35);
+  }
+}
